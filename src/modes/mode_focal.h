@@ -65,36 +65,36 @@ public:
       // Read A->B->C
 
       //  read openings
-      if (!(*portInputRegister(sensor_port) & sensor_a_mask) && (fired_a == 2))
+      if ((*portInputRegister(sensor_port) & sensor_a_mask) && (fired_a == 2))
       {
         Timer.get_count(&start_a);
         fired_a--;
       }
-      if (!(*portInputRegister(sensor_port) & sensor_b_mask) && (fired_b == 2))
+      if ((*portInputRegister(sensor_port) & sensor_b_mask) && (fired_b == 2))
       {
         Timer.get_count(&start_b);
         fired_b--;
       }
-      if (!(*portInputRegister(sensor_port) & sensor_c_mask) && (fired_c == 2))
+      if ((*portInputRegister(sensor_port) & sensor_c_mask) && (fired_c == 2))
       {
         Timer.get_count(&start_c);
         fired_c--;
       }
 
       // read closings
-      if ((*portInputRegister(sensor_port) & sensor_a_mask) && (fired_a == 1))
+      if (!(*portInputRegister(sensor_port) & sensor_a_mask) && (fired_a == 1))
       {
         Timer.get_count(&stop_a);
         fired_a--;
         measure--;
       }
-      if ((*portInputRegister(sensor_port) & sensor_b_mask) && (fired_b == 1))
+      if (!(*portInputRegister(sensor_port) & sensor_b_mask) && (fired_b == 1))
       {
         Timer.get_count(&stop_b);
         fired_b--;
         measure--;
       }
-      if ((*portInputRegister(sensor_port) & sensor_c_mask) && (fired_c == 1))
+      if (!(*portInputRegister(sensor_port) & sensor_c_mask) && (fired_c == 1))
       {
         Timer.get_count(&stop_c);
         fired_c--;
