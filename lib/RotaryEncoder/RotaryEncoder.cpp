@@ -41,10 +41,10 @@ int8_t RotaryEncoder::getValue(void)
 
     cli();
     val = delta;
-    delta = val & 3;
+    delta = val & 1;
     sei();
 
-    val >>= 2;
+    val >>= 1;
 
     if (val < 0)
     {
